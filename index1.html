@@ -12,9 +12,6 @@
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/custom.css" rel="stylesheet">
 
-    <!-- Fonts -->
-    <link href='http://fonts.googleapis.com/css?family=Oswald:100,300,400,500,600,800%7COpen+Sans:300,400,500,600,700,800%7CMontserrat:400,700' rel='stylesheet' type='text/css'>
-
     <!-- Favicons -->
     <link rel="icon" href="assets/img/favicon.png">
   </head>
@@ -37,7 +34,7 @@
 
         <!-- User account -->
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="login.html">Войти</a>
+          <a class="btn btn-sm btn-primary" href="index.html">Выйти</a>
         </div>
         <!-- END User account -->
 
@@ -45,7 +42,18 @@
         <ul class="nav-menu">
           <li>
             <a class="active" href="index.html">Главная</a>
-          </li> 
+          </li>
+          <li>
+            <a href="vacancies.html">Вакансии</a>
+          </li>
+          <li>
+            <a href="#">Резюме</a>
+            <ul>
+              <li><a href="createResume.html">Создать резюме</a></li>
+              <li><a href="myResume.html">Мои резюме</a></li>
+            </ul>
+          </li>
+          
         <!-- END Navigation menu -->
 
       </div>
@@ -143,12 +151,12 @@
       <section class="bg-img text-center" style="background-color: rgb(214, 128, 72)">
         <div class="container">
           <h2><strong>Начни поиск прямо сейчас!</strong></h2>
-          <h6 class="font-alt">Для полноценной работы с сайтом необходимо авторизироваться</h6>
+          <h6 class="font-alt">Вы авторизованы. Теперь можете перейти к созданию резюме и поиску подходящих вакансий</h6>
           <br><br>
           <form class="form-enter" action="#">
             <div class="input-group">
               <span class="input-group-btn">
-                <a class="btn btn-success btn-lg" href="login.html">Войти</a>
+                <a class="btn btn-success btn-lg" href="index.html">Выйти</a>
               </span>
             </div>
           </form>
