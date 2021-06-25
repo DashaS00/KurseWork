@@ -8,7 +8,18 @@
     <title>Мои резюме</title>
     <link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<?php
+		require_once "db/showResume.php";
+		$resume = getResume();
+	?>
   </head>
+  
+  	<?php
+		require_once "db/showResume.php";
+		$resume = getResume();
+		if($_COOKIE['user'] != ''):
+	?>
+  
   <body class="nav-on-header bg-alt">
     <nav class="navbar">
       <div class="container">
@@ -54,20 +65,21 @@
 
             <div class="col-xs-12">
               <div class="item-block">
-                <header>
-                  <a href="#"><img class="resume-avatar" src="img/avatar.png" alt=""></a>
+                
+				<?php
+				for ($i = 0; $i < count($resume); $i++){
+					echo '
+					<header><a href="#"><img class="resume-avatar" src="img/avatar.png" alt=""></a>
                   <div class="hgroup">
-                    <h4>Имя</h4>
-                    <h5>Название вакансии</h5>
+                    <h4>'.$resume[$i]["fio"].'</h4>
+                    <h5>'.$resume[$i]["vacancy_title"].'</h5>
                   </div>
                   <div class="header-meta">
-                    <p>Москва</p>
-                    <h5>Зарплата</h5>
-                  </div>
-                </header>
-
-                <footer>
-                  <p class="status"><strong>Создано:</strong> 01.01.01</p>
+                    <p>'.$resume[$i]["city"].'</p>
+                    <h5>'.$resume[$i]["salary"].'</h5>
+                  </div></header>
+				  <footer>
+                  <p class="status"><strong>Создано:</strong> '.$resume[$i]["date"].'</p>
 
                   <div class="action-btn">
                     <a class="btn-action" href="#">Скачать</a>
@@ -75,6 +87,9 @@
                     <a class="btn-del" href="#">Удалить</a>
                   </div>
                 </footer>
+						';
+				}
+		  ?>
               </div>
             </div>			
 			
@@ -108,6 +123,11 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
+	
+	<?php else: ?>
+		<meta http-equiv="refresh" content="0; url=index.php">
+	<?php endif;?>
+	
     <script src="js/app.min.js"></script>
   </body>
 </html>

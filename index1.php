@@ -8,8 +8,16 @@
     <title>Dream Job</title>
     <link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<?php
+		require_once "db/forIndex.php";
+		$vacancies = getVacancies (6);
+	?>
   </head>
-
+  
+	<?php
+		if($_COOKIE['user'] != ''):
+	?>
+	
   <body class="nav-on-header">
     <nav class="navbar">
       <div class="container">
@@ -83,39 +91,15 @@
           <header class="section-header">
             <h2>Популярные вакансии</h2>
           </header>
-
-          <div class="category-grid">
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a> 
-          </div>
-
+			<?php
+			for ($i = 0; $i < count($vacancies); $i++){
+				echo "<div class=\"category-grid\">";
+				echo '<a href="#">
+              <h6>'.$vacancies[$i]["name"].'</h6>
+              <p>'.$vacancies[$i]["description"].'</p>
+            </a>';
+			}
+		  ?>
         </div>
       </section>
       <section class="bg-img text-center" style="background-color: rgb(214, 128, 72)">
@@ -153,6 +137,11 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
+	
+	<?php else: ?>
+		<meta http-equiv="refresh" content="0; url=index.php">
+	  <?php endif;?>
+	  
     <script src="js/app.min.js"></script>
   </body>
 </html>

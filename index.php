@@ -5,11 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
+	<?php
+		require_once "db/forIndex.php";
+		$vacancies = getVacancies (6);
+	?>
+	
     <title>Dream Job</title>
     <link href="css/style.css" rel="stylesheet">
     <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   </head>
-
   <body class="nav-on-header">
     <nav class="navbar">
       <div class="container">
@@ -67,42 +71,19 @@
     <main>
 
       <section class="bg-alt">
-        <div class="container">
-          <header class="section-header">
+        <div class="container" >
+          <header class="section-header" >
             <h2>Популярные вакансии</h2>
           </header>
-
-          <div class="category-grid">
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a>
-
-            <a href="#">
-              <h6>Вакансия</h6>
-              <p>Описание</p>
-            </a> 
-          </div>
+		  <?php
+			for ($i = 0; $i < count($vacancies); $i++){
+				echo "<div class=\"category-grid\">";
+				echo '<a href="#">
+              <h6>'.$vacancies[$i]["name"].'</h6>
+              <p>'.$vacancies[$i]["description"].'</p>
+            </a>';
+			}
+		  ?>
         </div>
       </section>
 

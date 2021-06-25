@@ -7317,26 +7317,23 @@ dl.icon-holder dd
 }
 .category-grid a
 {
-	background-color: #fff;
-	border: 1px solid 	#FFE4B5;
+	background-image: #fff;
+	border: 1px solid #FFE4B5;
 	color: #000000;
 	display: inline-block;
 	float: left;
 	margin-bottom: 3.5%;
-	margin-right: 3.5%;
+	margin-right: 3.3%;
 	padding: 10px 40px;
 	text-align: center;
 	transition: .3s ease-in-out;
 	width: 30%;
 	border-radius: 10%;
 }
-.category-grid a:nth-child(3n+3)
-{
-	margin-right: 0;
-}
+
 .category-grid a:hover
 {
-	box-shadow: 0 5px 65px 0 rgba(214, 128, 72,.25);
+	box-shadow: 0 5px 45px 0 rgba(214, 128, 72,.25);
 	color: #000000;
 }
 
@@ -7362,7 +7359,7 @@ dl.icon-holder dd
 .category-grid p
 {
 	color: 	#F4A460;
-	font-size: 14px;
+	font-size: 13px;
 	line-height: 25px;
 	text-align: left;
 }
@@ -7393,7 +7390,7 @@ dl.icon-holder dd
 	{
 		margin-bottom: 5%;
 		margin-right: 0;
-		width: 100%;
+		width: 70%;
 	}
 }
 .counter
@@ -7703,6 +7700,11 @@ dl.icon-holder dd
 	padding: 120px 0;
 	position: relative;
 	z-index: 0;
+
+}
+.site-header-img
+{
+	background-image: url(img/baner.jpg);
 }
 .site-header:before
 {

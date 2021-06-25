@@ -9,6 +9,11 @@
     <link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
   </head>
+  
+  	<?php
+		if($_COOKIE['user'] != ''):
+	?>
+  
   <body class="nav-on-header bg-alt">
     <nav class="navbar">
       <div class="container">
@@ -38,12 +43,12 @@
       </div>
     </nav>
 
-    <form action="#">
+    <form action="db/createNewResume.php" method="post">
       <header class="page-header">
         <div class="container page-name">
           <h1 class="text-center">Создать резюме</h1>
         </div>
-
+	
         <div class="container">
           <div class="row">
             <div class="col-xs-12 col-sm-3">
@@ -54,71 +59,71 @@
 
             <div class="col-xs-12 col-sm-9">
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="ФИО">
+                <input type="text" class="form-control" name ="fio" id="fio" placeholder="ФИО">
               </div>
               
               <div class="form-group">
-                <input type="text" class="form-control" placeholder="Вакансия">
+                <input type="text" class="form-control" name ="vacancy_title" id="vacancy_title" placeholder="Вакансия">
               </div>
 
               <div class="form-group">
-                <textarea class="form-control" rows="3" placeholder="Обо мне"></textarea>
+                <textarea class="form-control" rows="3" name ="personal_inf" id="personal_inf" placeholder="Обо мне"></textarea>
               </div>
               <h6><font color="black">Основная информация</font></h6>
               <div class="row">
                 <div class="form-group col-xs-12 ">
-                    <input type="text" class="form-control" placeholder="Город">
+                    <input type="text" class="form-control" name ="city" id="city" placeholder="Город">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Зарплата">
+                    <input type="text" class="form-control" name ="salary" id="salary" placeholder="Зарплата">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Возраст">
+                    <input type="text" class="form-control" name ="age" id="age" placeholder="Возраст">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Телефон">
+                    <input type="text" class="form-control" name ="phone" id="phone" placeholder="Телефон">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="E-mail">
+                    <input type="text" class="form-control" name ="email" id="email" placeholder="E-mail">
                 </div>
               </div>
 			  <h6><font color="black">Образование</font></h6>
               <div class="row">
                 <div class="form-group col-xs-12 ">
-                    <input type="text" class="form-control" placeholder="Уровень">
+                    <input type="text" class="form-control" name ="education_level" id="education_level" placeholder="Уровень">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Год окончания">
+                    <input type="text" class="form-control" name ="graduation_year" id="graduation_year" placeholder="Год окончания">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Учебное заведение">
+                    <input type="text" class="form-control" name ="study_place" id="study_place" placeholder="Учебное заведение">
                 </div>
               </div>
 			  <h6><font color="black">Опыт работы</font></h6>
               <div class="row">
                 <div class="form-group col-xs-12 ">
-                    <input type="text" class="form-control" placeholder="Организация">
+                    <input type="text" class="form-control" name ="organisation" id="organisation" placeholder="Организация">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Сайт">
+                    <input type="text" class="form-control" name ="website" id="website" placeholder="Сайт">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Должность">
+                    <input type="text" class="form-control" name ="duty" id="duty" placeholder="Должность">
                 </div>
 				<div class="form-group col-xs-12">
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Начало работы">
-                        <input type="text" class="form-control" placeholder="Окончание">
+                        <input type="text" class="form-control" name ="begin_work" id="begin_work" placeholder="Начало работы">
+                        <input type="text" class="form-control" name ="finish_work" id="finish_work" placeholder="Окончание">
                     </div>
                 </div>
               </div>
 			  <h6><font color="black">Знание языков</font></h6>
               <div class="row">
                 <div class="form-group col-xs-12 ">
-                    <input type="text" class="form-control" placeholder="Язык">
+                    <input type="text" class="form-control" name ="language" id="language" placeholder="Язык">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" placeholder="Уровень">
+                    <input type="text" class="form-control" name ="lang_level" id="lang_level" placeholder="Уровень владения">
                 </div>
               </div>
             </div>
@@ -137,7 +142,7 @@
 	  
       <main>
 		<div style='text-align:center'>
-			<button class="btn btn-success btn-xl btn-round"><a  style='color:#d68048' href="myResume.php" >Сохранить резюме</a></button>
+			<button class="btn btn-success btn-xl btn-round"><a  style='color:#d68048' href="myResume.php">Сохранить резюме</a></button>
 		</div>
       </main>
     </form>
@@ -162,6 +167,11 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
+	
+	<?php else: ?>
+		<meta http-equiv="refresh" content="0; url=index.php">
+	<?php endif;?>
+	
     <script src="js/app.min.js"></script>
   </body>
 </html>

@@ -14,42 +14,34 @@
     <main>
       <div class="login-block">
         <h1>Регистрация</h1>
-
-        <form action="#">
+        <form action="db/check.php" method="post">
           <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Имя">
-            </div>
-          </div>
-		  
-		  <hr class="hr-xs">
-          <div class="form-group">
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Фамилия">
+              <input type="text" class="form-control" name ="fio" id="fio" placeholder="ФИО">
             </div>
           </div>
           
           <hr class="hr-xs">
           <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="E-mail">
+              <input type="text" class="form-control" name ="email" id="email" placeholder="E-mail">
             </div>
           </div>
 		  
 		  <hr class="hr-xs">
           <div class="form-group">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Логин">
+              <input type="text" class="form-control" name ="login" id="login" placeholder="Логин">
             </div>
           </div>
           
           <hr class="hr-xs">
           <div class="form-group">
             <div class="input-group">
-              <input type="password" class="form-control" placeholder="Пароль">
+              <input type="password" class="form-control" name ="password" id="password" placeholder="Пароль">
             </div>
          </div>
-          <a class="btn btn-primary btn-block" href="login.php">Зарегистрироваться</a>
+          <button class="btn btn-primary btn-block">Зарегистрироваться</button>
         </form>
       </div>
       <div class="login-links">

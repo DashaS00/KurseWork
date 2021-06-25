@@ -9,6 +9,11 @@
     <link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
   </head>
+  
+  	<?php
+		if($_COOKIE['user'] != ''):
+	?>
+  
   <body class="nav-on-header bg-alt">
     <nav class="navbar">
       <div class="container">
@@ -273,6 +278,11 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
+	
+	<?php else: ?>
+		<meta http-equiv="refresh" content="0; url=index.php">
+	<?php endif;?>
+	
     <script src="js/app.min.js"></script>
   </body>
 </html>
