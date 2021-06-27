@@ -11,27 +11,25 @@
 	<?php
 		require_once "db/forIndex.php";
 		$vacancies = getVacancies (6);
+		$countVacancies = getCountVacancies ();
+		$countResume = getCountResume ();
+		$avgVacancies = getAvgSalary ();
 	?>
   </head>
-  
 	<?php
 		if($_COOKIE['user'] != ''):
 	?>
-	
   <body class="nav-on-header">
     <nav class="navbar">
       <div class="container">
-
         <div class="pull-left">
           <div class="logo-wrapper">
             <a class="logo-alt" href="#"><img src="img/logo.jpg" alt="logo-alt"></a>
           </div>
         </div>
-
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="index.php">Выйти</a>
+          <a class="btn btn-sm btn-primary" href="db/exit.php">Выйти</a>
         </div>
-
         <ul class="nav-menu">
           <li>
             <a class="active" href="#">Главная</a>
@@ -46,9 +44,9 @@
               <li><a href="myResume.php">Мои резюме</a></li>
             </ul>
           </li>
+		</ul>
       </div>
     </nav>
-
     <header class="site-header size-lg text-center" style="background-image: url(img/banner.jpg)">
       <div class="container">
         <div class="col-xs-12">
@@ -59,30 +57,37 @@
             <div class="input-keyword">
               <input type="text" class="form-control" placeholder="Введите интересующую вакансию">
             </div>
-
             <div class="btn-search">
-              <button class="btn btn-primary" type="submit">Ищем!</button>
+              <button class="btn btn-primary index_search" href="vacancies.php">Ищем!</button>
             </div>
           </form>
         </div>
-		
 		<div class="row">
             <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="1000"></span>+</p>
-              <h6>Вакансий</h6>
+			<?php
+			for ($i = 0; $i < count($countVacancies); $i++){
+				echo '<p><span data-from="0" data-to="'.$countVacancies[$i]["COUNT( * )"].'"></span>+</p>
+              <h6>Вакансий</h6>';
+			}
+		  ?>
             </div>
-
             <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="100"></span>+</p>
-              <h6>Резюме</h6>
+			<?php
+			for ($i = 0; $i < count($countResume); $i++){
+				echo '<p><span data-from="0" data-to="'.$countResume[$i]["COUNT( * )"].'"></span>+</p>
+              <h6>Резюме</h6>';
+			}
+		  ?>
             </div>
-
             <div class="counter col-md-3 col-sm-6">
-              <p><span data-from="0" data-to="10000"></span>рублей</p>
-              <h6>Средняя зарплата</h6>
+			<?php
+			for ($i = 0; $i < count($avgVacancies); $i++){
+				echo '<p><span data-from="0" data-to="'.$avgVacancies[$i]["ROUND( AVG( salary ) , 0 )"].'"></span>рублей</p>
+              <h6>Средняя зарплата</h6>';
+			}
+			?>
             </div>
           </div>
-		
       </div>
     </header>
     <main>
@@ -110,7 +115,7 @@
           <form class="form-enter" action="#">
             <div class="input-group">
               <span class="input-group-btn">
-                <a class="btn btn-success btn-lg" href="index.php">Выйти</a>
+                <a class="btn btn-sm btn-primary" href="db/exit.php">Выйти</a>
               </span>
             </div>
           </form>
@@ -122,11 +127,11 @@
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>О нас</h6>
-            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и подать заявку на интересующую Вас вакансию. Для этого сначала необходимо авторизироваться.</p>
+            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и 
+			просмотреть существующие вакансии. Для этого сначала необходимо авторизироваться.</p>
           </div>
         </div>
-
-        <hr>
+		<hr>
       </div>
       <div class="container">
         <div class="row">
@@ -137,11 +142,9 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
-	
 	<?php else: ?>
 		<meta http-equiv="refresh" content="0; url=index.php">
-	  <?php endif;?>
-	  
+	  <?php endif;?> 
     <script src="js/app.min.js"></script>
   </body>
 </html>

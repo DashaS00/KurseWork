@@ -6,17 +6,13 @@
 	
 	$mysql = new mysqli('localhost','root','','dreamjob');
 	$mysql->query("SET NAMES 'utf8'"); 
-
-	
 	$result = $mysql->query("SELECT * FROM `users` WHERE `login` = '$login' AND `password` = '$password'");
 	$user = $result->fetch_assoc();
 	if (count($user) == 0){
-		echo "Такой пользователь не найден";
+		echo "Неверный логин или пароль";
 		exit();
 	}
-	setcookie('user', $user['name'], time() + 3600*4, "/");
-	
+	setcookie('user', $user['fio'], time() + 3600, "/");	
 	$mysql->close();
-	
 	header('Location: /index1.php');
 ?>

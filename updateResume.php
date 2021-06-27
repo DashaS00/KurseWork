@@ -43,7 +43,8 @@
     <form action="db/createNewRes.php" method="post">
       <header class="page-header">
         <div class="container page-name">
-          <h1 class="text-center">Создать резюме</h1>
+          <h1 class="text-center">Изменить резюме</h1>
+		  <p>Введите новые значения для своего резюме</p>
         </div>
         <div class="container">
           <div class="row">
@@ -52,16 +53,13 @@
                 <input type="file" class="dropify" data-default-file="img/avatar.png">
               </div>
             </div>
-
             <div class="col-xs-12 col-sm-9">
               <div class="form-group">
                 <input type="text" class="form-control" name ="fio" id="fio" placeholder="ФИО">
               </div>
-              
               <div class="form-group">
                 <input type="text" class="form-control" name ="vacancy_title" id="vacancy_title" placeholder="Вакансия">
               </div>
-
               <div class="form-group">
                 <textarea class="form-control" rows="3" name ="personal_inf" id="personal_inf" placeholder="Обо мне"></textarea>
               </div>
@@ -145,8 +143,7 @@
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>О нас</h6>
-            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и 
-			просмотреть существующие вакансии. Для этого сначала необходимо авторизироваться.</p>
+            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и подать заявку на интересующую Вас вакансию. Для этого сначала необходимо авторизироваться.</p>
           </div>
         </div>
 		<hr>

@@ -1,4 +1,4 @@
 <?php
-	setcookie('user', $user['name'], time() - 60, "/");
-		header('Location: /index.php');
+	setcookie('user', $user['fio'], time() - 3600, "/");
+	header('Location: /index.php');
 ?>

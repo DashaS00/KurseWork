@@ -9,7 +9,6 @@
     <link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
   </head>
-
   <body class="login-page">
     <main>
       <div class="login-block">

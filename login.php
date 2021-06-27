@@ -22,7 +22,6 @@
               <input type="text" class="form-control" name ="login" id="login" placeholder="Логин">
             </div>
           </div>
-          
           <hr class="hr-xs">
           <div class="form-group">
             <div class="input-group">

@@ -8,12 +8,26 @@
     <title>Поиск работы</title>
     <link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		function scheduleSelect(formname) {
+			$('form[name='+formname+'] :checkbox[name="select[]"]').click()
+		}
+		function salarySelect(formname) {
+			$('form[name='+formname+'] :checkbox[name="select[]"]').click()
+		}
+		function experienceSelect(formname) {
+			$('form[name='+formname+'] :checkbox[name="select[]"]').click()
+		}
+	</script>
+	<?php
+		require_once "db/showVac.php";
+		$vacancies = getVacancies();
+	?>
   </head>
-  
   	<?php
 		if($_COOKIE['user'] != ''):
 	?>
-  
   <body class="nav-on-header bg-alt">
     <nav class="navbar">
       <div class="container">
@@ -23,9 +37,8 @@
           </div>
         </div>
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="index.php">Выйти</a>
+          <a class="btn btn-sm btn-primary" href="db/exit.php">Выйти</a>
         </div>
-
         <ul class="nav-menu">
           <li>
             <a href="index1.php">Главная</a>
@@ -40,23 +53,22 @@
               <li><a href="myResume.php">Мои резюме</a></li>
             </ul>
           </li>
+		</ul>
       </div>
     </nav>
-
     <header class="page-header bg-img" style="background-image: url(img/banner.jpg);">
       <div class="container page-name">
         <h2 class="text-center" style="color:#fff">Найди работу по душе</h2>
       </div>
       <div class="container">
-        <form action="#">
           <div class="row">
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Ключевые слова">
+              <input type="text" class="form-control" name ="keyword" id="keyword" placeholder="Ключевые слова">
             </div>
             <div class="form-group col-xs-12 col-sm-4">
-              <input type="text" class="form-control" placeholder="Город">
+              <input type="text" class="form-control" name ="city" id="city" placeholder="Город">
             </div>
-            <div class="form-group col-xs-12 col-sm-4">
+            <div class="form-group col-xs-10 col-sm-4">
               <select class="form-control selectpicker" multiple>
                 <option selected>Все категории</option>
                 <option>Торговля</option>
@@ -72,171 +84,132 @@
 				<option>Дизайн</option>
 				<option>Образование</option>
               </select>
-            </div>
-			
+            </div>				
             <div class="form-group col-xs-12 col-sm-4">
               <h6 style="color:#000000">Занятость</h6>
-              <div class="checkall-group">
-                <div class="checkbox">
-                  <input type="checkbox" id="contract1" name="contract" checked>
-                  <label for="contract1">Любая</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="contract2" name="contract">
-                  <label for="contract2">Полный день</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="contract3" name="contract">
-                  <label for="contract3">Частичная занятость</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="contract4" name="contract">
-                  <label for="contract4">Вахта</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="contract5" name="contract">
-                  <label for="contract5">Свободный график</label>
-                </div>
-				<div class="checkbox">
-                  <input type="checkbox" id="contract5" name="contract">
-                  <label for="contract5">Сменный график</label>
-                </div>
-				<div class="checkbox">
-                  <input type="checkbox" id="contract5" name="contract">
-                  <label for="contract5">Удаленная работа</label>
-                </div>
-              </div>
+			  <form name="schedule">
+			  <div>
+				<label><input type="checkbox" name="select[]"/>&nbsp;Любая</label>
+				</div>
+			  <div>
+				<label><input type="checkbox" name="select[]"/>&nbsp;Полный день</label>
+			  </div>
+			  <div>
+				<label><input type="checkbox" name="select[]"/>&nbsp;Частичная занятость</label>
+			  </div>
+			  <div>
+				<label><input type="checkbox" name="select[]"/>&nbsp;Вахта</label>
+			  </div>
+			  <div>
+				<label><input type="checkbox" name="select[]"/>&nbsp;Свободный график</label>
+			  </div>
+			  <div>
+				<label><input type="checkbox" name="select[]"/>&nbsp;Сменный график</label>
+			  </div>
+			  <div >
+				<label><input type="checkbox" name="select[]"/>&nbsp;Удаленная работа</label>
+			  </div>
+			  <div>
+				<a input type="checkbox" id="select_all"  onClick="scheduleSelect('schedule')" >&nbsp;Отметить все</a>
+			  </div>
+			</form>                
             </div>
-
-            <div class="form-group col-xs-12 col-sm-4">
+			<div class="form-group col-xs-12 col-sm-4">
               <h6 style="color:#000000">Зарплата</h6>
-              <div class="checkall-group">
-                <div class="checkbox">
-                  <input type="checkbox" id="rate1" name="rate" checked>
-                  <label for="rate1">Любая</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate2" name="rate">
-                  <label for="rate2">До 20000</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate3" name="rate">
-                  <label for="rate3">20000-50000</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate4" name="rate">
-                  <label for="rate4">50000-80000</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate5" name="rate">
-                  <label for="rate5">80000-150000</label>
-                </div>
-				<div class="checkbox">
-                  <input type="checkbox" id="rate5" name="rate">
-                  <label for="rate5">Более 150000</label>
-                </div>
-              </div>
+			  <form name="salary">
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;Любая</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;До 20000</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;20000-50000</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;50000-80000</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;80000-150000</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;Более 150000</label>
+				</div>
+				<div>
+					<a input type="checkbox" id="select_all"  onClick="salarySelect('salary')" >&nbsp;Отметить все</a>
+				</div>
+				</form>                
             </div>
-			
 			<div class="form-group col-xs-12 col-sm-4">
               <h6 style="color:#000000">Опыт работы</h6>
-              <div class="checkall-group">
-                <div class="checkbox">
-                  <input type="checkbox" id="rate1" name="rate" checked>
-                  <label for="rate1">Любой</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate2" name="rate">
-                  <label for="rate2">Нет опыта</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate3" name="rate">
-                  <label for="rate3">Менее 1 года</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate4" name="rate">
-                  <label for="rate4">1-3 года</label>
-                </div>
-                <div class="checkbox">
-                  <input type="checkbox" id="rate5" name="rate">
-                  <label for="rate5">3-5 лет</label>
-                </div>
-				<div class="checkbox">
-                  <input type="checkbox" id="rate5" name="rate">
-                  <label for="rate5">Более 5 лет</label>
-                </div>
-              </div>
+				<form name="experience">
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;Любой</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;Нет опыта</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;Менее 1 года</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;1 - 3 года</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;3 - 5 лет</label>
+				</div>
+				<div>
+					<label><input type="checkbox" name="select[]"/>&nbsp;Более 5 лет</label>
+				</div>
+				<div>
+					<a input type="checkbox" id="select_all"  onClick="experienceSelect('experience')">&nbsp;Отметить все</a>
+				</div>
+				</form>                
             </div>
-          </div>
-
+		  </div>
           <div class="button-group">
             <div class="action-buttons">
-              <button class="btn btn-primary">Применить фильтр</button>
+              <button class="btn btn-primary" name="filter">Применить фильтр</button>
             </div>
-          </div>
-        </form>
+          </div>   
       </div>
     </header>
-
     <main>
       <section class="no-padding-top bg-alt">
         <div class="container">
           <div class="row">
             <div class="col-xs-12">
-              <a class="item-block" href="#">
-                <header>
+			 <?php 
+			for ($i = 0; $i < count($vacancies); $i++){
+				echo '<a class="item-block" href="#">
+				<header>
                   <div class="hgroup">
-                    <h4>Вакансия</h4>
-                    <h5>Компания График</h5>
+                    <h4>'.$vacancies[$i]["name"].'</h4>
+                    <h5>'.$vacancies[$i]["organization"].'</h5> 
+					<h5>'.$vacancies[$i]["schedule_name"].'</h5>
                   </div>
                 </header>
                 <div class="item-body">
-                  <p>Описание</p>
+                  <p>'.$vacancies[$i]["description"].'</p>
                 </div>
                 <footer>
                   <ul class="details cols-3">
                     <li>
-                      <span>Город/адрес</span>
+                      <span>'.$vacancies[$i]["city"].'</span>
                     </li>
                     <li>
-                      <span>Зарплата</span>
+                      <span>'.$vacancies[$i]["salary"].'</span>
                     </li>
                     <li>
-                      <span>Опыт работы</span>
+                      <span>'.$vacancies[$i]["experience_name"].'</span>
                     </li>
                   </ul>
                 </footer>
-              </a>
-            </div>
-
-            <div class="col-xs-12">
-              <a class="item-block" href="#">
-                <header>
-                  <div class="hgroup">
-                    <h4>Вакансия</h4>
-                    <h5>Компания График</h5>
-                  </div>
-                </header>
-                <div class="item-body">
-                  <p>Описание</p>
-                </div>
-                <footer>
-                  <ul class="details cols-3">
-                    <li>
-                      <span>Город/адрес</span>
-                    </li>
-                    <li>
-                      <span>Зарплата</span>
-                    </li>
-                    <li>
-                      <span>Опыт работы</span>
-                    </li>
-                  </ul>
-                </footer>
-              </a>
+				</a>';
+			 }
+		  ?>
             </div>
           </div>
-
           <nav class="text-center">
             <ul class="pagination">
               <li>
@@ -257,18 +230,17 @@
         </div>
       </section>
     </main>
-	
     <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>О нас</h6>
-            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и подать заявку на интересующую Вас вакансию. Для этого сначала необходимо авторизироваться.</p>
+            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и 
+			просмотреть существующие вакансии. Для этого сначала необходимо авторизироваться.</p>
           </div>
         </div>
         <hr>
       </div>
-
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
@@ -278,11 +250,9 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
-	
 	<?php else: ?>
 		<meta http-equiv="refresh" content="0; url=index.php">
 	<?php endif;?>
-	
     <script src="js/app.min.js"></script>
   </body>
 </html>

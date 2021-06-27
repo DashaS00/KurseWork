@@ -13,28 +13,20 @@
 		$resume = getResume();
 	?>
   </head>
-  
   	<?php
-		require_once "db/showResume.php";
-		$resume = getResume();
 		if($_COOKIE['user'] != ''):
 	?>
-  
   <body class="nav-on-header bg-alt">
     <nav class="navbar">
       <div class="container">
-
         <div class="pull-left">
           <div class="logo-wrapper">
             <a class="logo-alt" href="#"><img src="img/logo.jpg" alt="logo-alt"></a>
           </div>
-
         </div>
-
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="index.php">Выйти</a>
+          <a class="btn btn-sm btn-primary" href="db/exit.php">Выйти</a>
         </div>
-
         <ul class="nav-menu">
           <li>
             <a href="index1.php">Главная</a>
@@ -49,71 +41,64 @@
               <li><a href="myResume.php">Мои резюме</a></li>
             </ul>
           </li>
+		</ul>
       </div>
     </nav>
-
     <header class="page-header-resume bg-img size-lg" style="background-image: url(img/banner.jpg)">
       <div class="container-resume no-shadow-resume">
         <h1 class="text-center">Мои резюме</h1>
       </div>
     </header>
-
     <main>
       <section class="no-padding-top bg-alt">
         <div class="container">
           <div class="row">
-
             <div class="col-xs-12">
-              <div class="item-block">
-                
 				<?php
 				for ($i = 0; $i < count($resume); $i++){
-					echo '
-					<header><a href="#"><img class="resume-avatar" src="img/avatar.png" alt=""></a>
-                  <div class="hgroup">
-                    <h4>'.$resume[$i]["fio"].'</h4>
-                    <h5>'.$resume[$i]["vacancy_title"].'</h5>
-                  </div>
-                  <div class="header-meta">
-                    <p>'.$resume[$i]["city"].'</p>
-                    <h5>'.$resume[$i]["salary"].'</h5>
-                  </div></header>
-				  <footer>
-                  <p class="status"><strong>Создано:</strong> '.$resume[$i]["date"].'</p>
-
-                  <div class="action-btn">
-                    <a class="btn-action" href="#">Скачать</a>
-                    <a class="btn-action" href="#">Редактировать</a>
-                    <a class="btn-del" href="#">Удалить</a>
-                  </div>
-                </footer>
-						';
+					echo '<div class="item-block">
+						<header>
+							<a href="#"><img class="resume-avatar" src="img/avatar.png" alt=""></a>
+								<div class="hgroup">
+									<h4>'.$resume[$i]["fio"].'</h4>
+									<h5>'.$resume[$i]["vacancy_title"].'</h5>
+								</div>
+								<div class="header-meta">
+									<p>'.$resume[$i]["city"].'</p>
+									<h5>'.$resume[$i]["salary"].'</h5>
+								</div>
+						</header>
+						<footer>
+							<p class="status"><strong>Создано:</strong> '.$resume[$i]["date"].'</p>
+							<div class="action-btn">
+								<a class="btn-action" href="updateResume.php">Редактировать</a>
+								<a class="btn-action" href="printPage.php">Печать</a>
+							</div>
+						</footer>
+					</div>	';
 				}
 		  ?>
-              </div>
             </div>			
-			
 			 <div class="col-xs-12 text-right">
               <br>
               <a class="btn btn-primary btn-sm" href="createResume.php">Создать</a>
+			  <a class="btn btn-primary btn-sm" href="db/del.php">Удалить все</a>
             </div>
           </div>
         </div>
       </section>
     </main>
-
     <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-sm-12 col-md-6">
             <h6>О нас</h6>
-            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и подать заявку на интересующую Вас вакансию. Для этого сначала необходимо авторизироваться.</p>
+            <p class="text-justify">Этот сайт создан для поиска работы. Здесь Вы можете создать свое резюме и 
+			просмотреть существующие вакансии. Для этого сначала необходимо авторизироваться.</p>
           </div>
         </div>
-
         <hr>
       </div>
-
       <div class="container">
         <div class="row">
           <div class="col-md-8 col-sm-6 col-xs-12">
@@ -123,11 +108,9 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
-	
 	<?php else: ?>
 		<meta http-equiv="refresh" content="0; url=index.php">
 	<?php endif;?>
-	
     <script src="js/app.min.js"></script>
   </body>
 </html>

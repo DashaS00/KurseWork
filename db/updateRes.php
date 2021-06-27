@@ -96,14 +96,16 @@
 		echo "Недопустимая длина уровня владения";
 		exit();
 	}
+	
 	$mysql = new mysqli('localhost','root','','dreamjob');
 	$mysql->query("SET NAMES 'utf8'");
-	$mysql->query("INSERT INTO `resume` (`fio`, `vacancy_title`, `personal_inf`, `city`, `salary`, `age`, `phone`, 
-	`email`, `education_level`, `graduation_year`, `study_place`, `organisation`, `website`, `duty`, `begin_work`, 
-	`finish_work`, `language`, `lang_level`, `date`) 
-	VALUES('$fio', '$vacancy_title', '$personal_inf', '$city', '$salary', '$age', '$phone', '$email', 
-	'$education_level', '$graduation_year', '$study_place', '$organisation', '$website', '$duty', '$begin_work', 
-	'$finish_work', '$language', '$lang_level', NOW())");
+	
+	$mysql->query("UPDATE `dreamjob`.`resume` SET `fio`='$fio', 
+	`personal_inf`='$personal_inf', `city`='$city', `salary`='$salary', `age`='$age', `phone`='$phone', 
+	`email`='$email', `education_level`='$education_level', `graduation_year`='$graduation_year', 
+	`study_place`='$study_place', `organisation`='$organisation', `website`='$website', `duty`='$duty', 
+	`begin_work`='$begin_work', `finish_work`='$finish_work', `language`='$language', `lang_level`='$lang_level' 
+	WHERE `fio`=`cookie` AND `vacancy_title`='$vacancy_title'");
 	$mysql->close();
 	header('Location: /myResume.php');
 ?>
