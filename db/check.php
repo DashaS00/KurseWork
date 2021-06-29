@@ -16,7 +16,7 @@
 		echo "Недопустимая длина email(от 5ти символов)";
 		exit();
 	}
-	if(mb_strlen($login) < 5 || mb_strlen($login) > 20){
+	if(mb_strlen($login) < 5 || mb_strlen($login) > 50){
 		echo "Недопустимая длина логина (от 5ти символов)";
 		exit();
 	}

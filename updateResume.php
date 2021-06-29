@@ -134,7 +134,7 @@
       </header>
       <main>
 		<div style='text-align:center'>
-			<button class="btn btn-success btn-xl btn-round" style='color:#d68048'>Сохранить резюме</button>
+			<button class="btn btn-success btn-xl btn-round" style='color:#d68048'>Изменить</button>
 		</div>
       </main>
     </form>

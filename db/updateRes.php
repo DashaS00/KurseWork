@@ -105,7 +105,7 @@
 	`email`='$email', `education_level`='$education_level', `graduation_year`='$graduation_year', 
 	`study_place`='$study_place', `organisation`='$organisation', `website`='$website', `duty`='$duty', 
 	`begin_work`='$begin_work', `finish_work`='$finish_work', `language`='$language', `lang_level`='$lang_level' 
-	WHERE `fio`=`cookie` AND `vacancy_title`='$vacancy_title'");
+	WHERE `fio`=`".$_COOKIE['user']."` AND `vacancy_title`='$vacancy_title'");
 	$mysql->close();
 	header('Location: /myResume.php');
 ?>

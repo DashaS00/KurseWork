@@ -77,7 +77,7 @@
                     <input type="text" class="form-control" name ="age" id="age" placeholder="Возраст">
                 </div>
                 <div class="form-group col-xs-12">
-                    <input type="text" class="form-control" name ="phone" id="phone" placeholder="Телефон">
+                    <input type="text" class="form-control" name ="phone" id="phone" placeholder="Телефон в формате 89999999999">
                 </div>
                 <div class="form-group col-xs-12">
                     <input type="text" class="form-control" name ="email" id="email" placeholder="E-mail">
@@ -95,7 +95,7 @@
                     <input type="text" class="form-control" name ="study_place" id="study_place" placeholder="Учебное заведение">
                 </div>
               </div>
-			  <h6><font color="black">Опыт работы</font></h6>
+			  <h6><font color="black">Опыт работы (последнее место работы)</font></h6>
               <div class="row">
                 <div class="form-group col-xs-12 ">
                     <input type="text" class="form-control" name ="organisation" id="organisation" placeholder="Организация">
@@ -108,8 +108,8 @@
                 </div>
 				<div class="form-group col-xs-12">
                     <div class="input-group">
-                        <input type="text" class="form-control" name ="begin_work" id="begin_work" placeholder="Начало работы">
-                        <input type="text" class="form-control" name ="finish_work" id="finish_work" placeholder="Окончание">
+                        <input type="text" class="form-control" name ="begin_work" id="begin_work" placeholder="Начало работы в формате гггг-мм-дд">
+                        <input type="text" class="form-control" name ="finish_work" id="finish_work" placeholder="Окончание в формате гггг-мм-дд">
                     </div>
                 </div>
               </div>

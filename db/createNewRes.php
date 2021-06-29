@@ -64,7 +64,7 @@
 		echo "Недопустимое значение email";
 		exit();
 	}
-	if(mb_strlen($education_level) < 1 || mb_strlen($education_level) > 30){
+	if(mb_strlen($education_level) < 1 || mb_strlen($education_level) > 40){
 		echo "Недопустимое значение уровня образования";
 		exit();
 	}
