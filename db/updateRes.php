@@ -100,12 +100,11 @@
 	$mysql = new mysqli('localhost','root','','dreamjob');
 	$mysql->query("SET NAMES 'utf8'");
 	
-	$mysql->query("UPDATE `dreamjob`.`resume` SET `fio`='$fio', 
-	`personal_inf`='$personal_inf', `city`='$city', `salary`='$salary', `age`='$age', `phone`='$phone', 
+	$mysql->query("UPDATE `dreamjob`.`resume` SET `personal_inf`='$personal_inf', `city`='$city', `salary`='$salary', `age`='$age', `phone`='$phone', 
 	`email`='$email', `education_level`='$education_level', `graduation_year`='$graduation_year', 
 	`study_place`='$study_place', `organisation`='$organisation', `website`='$website', `duty`='$duty', 
 	`begin_work`='$begin_work', `finish_work`='$finish_work', `language`='$language', `lang_level`='$lang_level' 
-	WHERE `fio`=`".$_COOKIE['user']."` AND `vacancy_title`='$vacancy_title'");
+	WHERE `fio`='".$_COOKIE['user']."' AND `vacancy_title`='$vacancy_title'");
 	$mysql->close();
 	header('Location: /myResume.php');
 ?>

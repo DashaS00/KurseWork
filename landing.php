@@ -83,7 +83,7 @@
           </header>
 		  <div class="row item-blocks-connected">
             <div style="text-align:center">
-				<video src="video.mp4" width="500" height="400" controls="controls">
+				<video src="video/video.mp4" width="500" height="400" controls="controls">
 			</div>
 		  </div>
 		</div>

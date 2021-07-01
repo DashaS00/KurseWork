@@ -40,7 +40,7 @@
 		</ul>
       </div>
     </nav>
-    <form action="db/createNewRes.php" method="post">
+    <form action="db/updateRes.php" method="post">
       <header class="page-header">
         <div class="container page-name">
           <h1 class="text-center">Изменить резюме</h1>
