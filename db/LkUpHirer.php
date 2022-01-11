@@ -1,19 +1,13 @@
-<?php
-	$fio = filter_var(trim($_POST['fio']),
-	FILTER_SANITIZE_STRING);
+<?php	
 	$email = filter_var(trim($_POST['email']),
 	FILTER_SANITIZE_STRING);
 	$login = filter_var(trim($_POST['login']),
 	FILTER_SANITIZE_STRING);
 	$password = filter_var(trim($_POST['password']),
 	FILTER_SANITIZE_STRING);
-	$status = filter_var(trim($_POST['status']),
+	$company = filter_var(trim($_POST['company']),
 	FILTER_SANITIZE_STRING);
 	
-	if(mb_strlen($fio) < 3 || mb_strlen($fio) > 200){
-		echo "Недопустимая длина имени";
-		exit();
-	}
 	if(mb_strlen($email) < 5 || mb_strlen($email) > 60){
 		echo "Недопустимая длина email(от 5ти символов)";
 		exit();
@@ -26,9 +20,12 @@
 		echo "Недопустимая длина пароля (от 4х до 10ти символов)";
 		exit();
 	}
+	
 	$mysql = new mysqli('localhost','root','','dreamjob');
-	$mysql->query("SET NAMES 'utf8'"); 
-	$mysql->query("INSERT INTO `users` (`fio`, `email`, `login`, `password`, `status`) VALUES('$fio', '$email', '$login', '$password', '$status')");
+	$mysql->query("SET NAMES 'utf8'");
+	
+	$mysql->query("UPDATE `dreamjob`.`users` SET `email`='$email', `login`='$login', `password`='$password', `company`='$company' 
+	WHERE `fio`='".$_COOKIE['user']."'");
 	$mysql->close();
-	header('Location: /status.php');
+	header('Location: /LkHirer.php');
 ?>

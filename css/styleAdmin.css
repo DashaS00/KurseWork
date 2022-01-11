@@ -1,0 +1,102 @@
+.sidebar-fixed{
+	height: 100vh;
+	width: 270px;
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	z-index: 1050;
+	background-color: #795548;
+	padding: 1.5rem;
+	padding-top: 0;
+}
+.sidebar-fixed .list-group .active{
+	box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
+	border-radius: 5px;
+}
+.sidebar-fixed .list-group-item {
+	background-color: #795548;
+	color: white;
+}
+.sidebar-fixed .logo-wrapper{
+	padding: 2.5rem;
+}
+.sidebar-fixed .logo-wrapper img{
+	min-height: 50px;
+}
+.fa-search{
+	color: white;
+}
+.card .list-group-item{
+	color: black;
+}
+.btnExit{
+	background-color: #d68048;
+	border-radius: 18px;
+	color: white;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	padding: 5px;
+	width: 100px;
+}
+.btnExit:hover{
+	color: #795548;
+}
+.btnUpdate{
+	background-color: #d68048;
+	border-radius: 18px;
+	color: white;
+	position: absolute;
+	bottom: 10px;
+	text-align: center;
+	padding: 5px;
+	width: 100px;
+}
+.btnUpdate:hover{
+	color: #795548;
+}
+.btnDel{
+	color: red;
+	font-size: 14px;
+}
+.btnDel:hover{
+	color: red;
+}
+@media (min-width: 1200px){
+	.navbar, .page-footer, main{
+		padding-left: 270px;
+	}
+}
+@media (max-width: 1199.98px){
+	.sidebar-fixed{
+		display: none;
+	}
+}
+table {
+   border-collapse: collapse;
+   /*убираем пустые промежутки между ячейками*/
+   border: 1px solid grey;
+   /*устанавливаем для таблицы внешнюю границу серого цвета толщиной 1px*/
+   width: 1000px;
+   color: #795548;
+}
+th {
+   border: 1px solid grey;
+}
+td {
+   border: 1px solid grey;
+}
+th, td {
+   border: 1px solid grey;
+}
+table a{
+	color: red;
+	text-align: center;
+}
+table a:hover{
+	color: red;
+}
+.first {
+  font-size: 1em;
+  font-weight: bold;
+  text-align: center;
+  background-color: #ffdead; 
+}

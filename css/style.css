@@ -175,6 +175,10 @@ a
 	color: #d68048;
 	text-decoration: none;
 }
+.loginAuth
+{
+	font-color: #ffffff;
+}
 a:focus,a:hover
 {
 	color: #d68048;

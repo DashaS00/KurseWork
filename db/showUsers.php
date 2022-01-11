@@ -1,9 +1,9 @@
 <?php
 	require_once"db/conn.php";
-	function getVac(){
+	function getUsers(){
 		global $mysqli;
 		connectDB();
-		$result = $mysqli->query("SELECT * FROM `vacancies` WHERE `fio` = '".$_COOKIE['user']."' ORDER BY `id` DESC");
+		$result = $mysqli->query("SELECT * FROM `users` ORDER BY `id`");
 		closeDB();
 		return resultToArray ($result);
 	}
@@ -12,5 +12,6 @@
 		while (($row = $result->fetch_assoc()) != false)
 			$array[] = $row;
 		return $array;
-	}
+	}	
+	header('Location: /adminUsers.php');
 ?>
