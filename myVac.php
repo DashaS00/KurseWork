@@ -32,9 +32,6 @@
             <a class="active" href="indexHirer">Главная</a>
           </li>
           <li>
-            <a href="#">Отклики</a>
-          </li>
-          <li>
             <a href="#">Вакансии</a>
             <ul>
               <li><a href="createVac.php">Создать вакансию</a></li>
@@ -72,9 +69,6 @@
 								</div>
 						</header>
 						<footer>
-							<div class="action-btn">
-								<a class="btn-action" href="#">Редактировать</a>
-							</div>
 						</footer>
 					</div>	';
 				}

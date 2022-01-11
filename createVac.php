@@ -28,9 +28,6 @@
             <a href="indexHirer.php">Главная</a>
           </li>
           <li>
-            <a href="#">Отклики</a>
-          </li>
-          <li>
             <a class="active" href="#">Вакансии</a>
             <ul>
               <li><a href="createVac.php">Создать вакансию</a></li>

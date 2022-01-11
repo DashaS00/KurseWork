@@ -32,9 +32,6 @@
             <a href="indexHirer.php">Главная</a>
           </li>
           <li>
-            <a href="#">Отклики</a>
-          </li>
-          <li>
             <a href="#">Вакансии</a>
             <ul>
               <li><a href="createVac.php">Создать вакансию</a></li>
@@ -90,7 +87,7 @@
 		  ?>
 		  <br><div class="action-buttons">
               <div class="upload-button">
-                <a class="pull-right" href="#">Мои вакансии</a><br><br>
+                <a class="pull-right" href="myVac.php">Мои вакансии</a><br><br>
               </div>
             </div>
             </div>
