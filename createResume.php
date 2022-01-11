@@ -25,7 +25,7 @@
         </div>
         <ul class="nav-menu">
           <li>
-            <a href="index1.php">Главная</a>
+            <a href="indexWorker.php">Главная</a>
           </li>
           <li>
             <a href="vacancies.php">Вакансии</a>
@@ -36,6 +36,9 @@
               <li><a href="createResume.php">Создать резюме</a></li>
               <li><a href="myResume.php">Мои резюме</a></li>
             </ul>
+          </li>
+		  <li>
+            <a href="LkWorker.php">Личный кабинет</a>
           </li>
 		</ul>
       </div>

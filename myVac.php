@@ -9,8 +9,8 @@
     <link href="css/style.css" rel="stylesheet">
 	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<?php
-		require_once "db/showResume.php";
-		$resume = getResume();
+		require_once "db/showVac.php";
+		$vacancies = getVac();
 	?>
   </head>
   	<?php
@@ -29,27 +29,27 @@
         </div>
         <ul class="nav-menu">
           <li>
-            <a href="indexWorker.php">Главная</a>
+            <a class="active" href="indexHirer">Главная</a>
           </li>
           <li>
-            <a href="vacancies.php">Вакансии</a>
+            <a href="#">Отклики</a>
           </li>
           <li>
-            <a class="active" href="#">Резюме</a>
+            <a href="#">Вакансии</a>
             <ul>
-              <li><a href="createResume.php">Создать резюме</a></li>
-              <li><a href="myResume.php">Мои резюме</a></li>
+              <li><a href="createVac.php">Создать вакансию</a></li>
+              <li><a href="myVac.php">Мои вакансии</a></li>
             </ul>
           </li>
 		  <li>
-            <a href="LkWorker.php">Личный кабинет</a>
+            <a href="LkHirer.php">Личный кабинет</a>
           </li>
 		</ul>
       </div>
     </nav>
     <header class="page-header-resume bg-img size-lg" style="background-image: url(img/banner.jpg)">
       <div class="container-resume no-shadow-resume">
-        <h1 class="text-center">Мои резюме</h1>
+        <h1 class="text-center">Мои вакансии</h1>
       </div>
     </header>
     <main>
@@ -58,24 +58,22 @@
           <div class="row">
             <div class="col-xs-12">
 				<?php
-				for ($i = 0; $i < count($resume); $i++){
+				for ($i = 0; $i < count($vacancies); $i++){
 					echo '<div class="item-block">
 						<header>
-							<a href="#"><img class="resume-avatar" src="img/avatar.png" alt=""></a>
+							<a href="#"><img class="resume-avatar" src="img/logo.png" alt=""></a>
 								<div class="hgroup">
-									<h4>'.$resume[$i]["fio"].'</h4>
-									<h5>'.$resume[$i]["vacancy_title"].'</h5>
+									<h4>'.$vacancies[$i]["name"].'</h4>
+									<h5>'.$vacancies[$i]["description"].'</h5>
 								</div>
 								<div class="header-meta">
-									<p>'.$resume[$i]["city"].'</p>
-									<h5>'.$resume[$i]["salary"].'</h5>
+									<p>'.$vacancies[$i]["city"].'</p>
+									<h5>'.$vacancies[$i]["salary"].'</h5>
 								</div>
 						</header>
 						<footer>
-							<p class="status"><strong>Создано:</strong> '.$resume[$i]["date"].'</p>
 							<div class="action-btn">
-								<a class="btn-action" href="updateResume.php">Редактировать</a>
-								<a class="btn-action" href="printPage.php">Печать</a>
+								<a class="btn-action" href="#">Редактировать</a>
 							</div>
 						</footer>
 					</div>	';
@@ -84,8 +82,8 @@
             </div>			
 			 <div class="col-xs-12 text-right">
               <br>
-              <a class="btn btn-primary btn-sm" href="createResume.php">Создать</a>
-			  <a class="btn btn-primary btn-sm" href="db/del.php">Удалить все</a>
+              <a class="btn btn-primary btn-sm" href="createVac.php">Создать</a>
+			  <a class="btn btn-primary btn-sm" href="db/delVac.php">Удалить все</a>
             </div>
           </div>
         </div>

@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="keywords" content="">
+    <title>Dream Job</title>
+    <link href="css/style.css" rel="stylesheet">
+	<link rel="icon" href="img/favicon.ico" type="image/x-icon">
 	<?php
 		require_once "db/forIndex.php";
 		$vacancies = getVacancies (6);
@@ -12,10 +15,10 @@
 		$countResume = getCountResume ();
 		$avgVacancies = getAvgSalary ();
 	?>
-    <title>Dream Job</title>
-    <link href="css/style.css" rel="stylesheet">
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
   </head>
+	<?php
+		if($_COOKIE['user'] != ''):
+	?>
   <body class="nav-on-header">
     <nav class="navbar">
       <div class="container">
@@ -25,12 +28,25 @@
           </div>
         </div>
         <div class="pull-right user-login">
-          <a class="btn btn-sm btn-primary" href="status.php">Войти</a>
+          <a class="btn btn-sm btn-primary" href="db/exit.php">Выйти</a>
         </div>
         <ul class="nav-menu">
           <li>
-            <a class="active" href="index.php">Главная</a>
-          </li> 
+            <a class="active" href="indexWorker">Главная</a>
+          </li>
+          <li>
+            <a href="vacancies.php">Вакансии</a>
+          </li>
+          <li>
+            <a href="#">Резюме</a>
+            <ul>
+              <li><a href="createResume.php">Создать резюме</a></li>
+              <li><a href="myResume.php">Мои резюме</a></li>
+            </ul>
+          </li>
+		  <li>
+            <a href="LkWorker.php">Личный кабинет</a>
+          </li>
 		</ul>
       </div>
     </nav>
@@ -45,7 +61,7 @@
               <input type="text" class="form-control" placeholder="Введите интересующую вакансию">
             </div>
             <div class="btn-search">
-              <button class="btn btn-primary" type="submit">Ищем!</button>
+              <button class="btn btn-primary index_search" href="vacancies.php">Ищем!</button>
             </div>
           </form>
         </div>
@@ -79,11 +95,11 @@
     </header>
     <main>
       <section class="bg-alt">
-        <div class="container" >
-          <header class="section-header" >
+        <div class="container">
+          <header class="section-header">
             <h2>Популярные вакансии</h2>
           </header>
-		  <?php
+			<?php
 			for ($i = 0; $i < count($vacancies); $i++){
 				echo "<div class=\"category-grid\">";
 				echo '<a href="#">
@@ -97,12 +113,12 @@
       <section class="bg-img text-center" style="background-color: rgb(214, 128, 72)">
         <div class="container">
           <h2><strong>Начни поиск прямо сейчас!</strong></h2>
-          <h6 class="font-alt">Для полноценной работы с сайтом необходимо авторизироваться</h6>
+          <h6 class="font-alt">Вы авторизованы. Теперь можете перейти к созданию резюме и поиску подходящих вакансий</h6>
           <br><br>
           <form class="form-enter" action="#">
             <div class="input-group">
               <span class="input-group-btn">
-                <a class="btn btn-success btn-lg" href="login.php">Войти</a>
+                <a class="btn btn-sm btn-primary" href="db/exit.php">Выйти</a>
               </span>
             </div>
           </form>
@@ -129,6 +145,9 @@
       </div>
     </footer>
     <a id="scroll-up" href="#">^</a>
+	<?php else: ?>
+		<meta http-equiv="refresh" content="0; url=index.php">
+	  <?php endif;?> 
     <script src="js/app.min.js"></script>
   </body>
 </html>

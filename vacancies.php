@@ -53,6 +53,9 @@
               <li><a href="myResume.php">Мои резюме</a></li>
             </ul>
           </li>
+		  <li>
+            <a href="LkWorker.php">Личный кабинет</a>
+          </li>
 		</ul>
       </div>
     </nav>

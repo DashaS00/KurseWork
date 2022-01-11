@@ -40,11 +40,19 @@
               <input type="password" class="form-control" name ="password" id="password" placeholder="Пароль">
             </div>
          </div>
+		 
+		 <hr class="hr-xs">
+          <div class="form-group">
+            <div class="input-group">
+              <input type="text" class="form-control" name ="status" id="status" placeholder="Соискатель/Работодатель">
+            </div>
+          </div>
+		 
           <button class="btn btn-primary btn-block">Зарегистрироваться</button>
         </form>
       </div>
       <div class="login-links">
-        <p class="text-center">Уже есть аккаунт? <a class="txt-brand" href="login.php">Войти</a></p>
+        <p class="text-center">Уже есть аккаунт? <a class="txt-brand" href="status.php">Войти</a></p>
       </div>
     </main>
     <script src="js/app.min.js"></script>
